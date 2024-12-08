@@ -11,7 +11,6 @@ import javax.xml.namespace.QName;
 
 public class JaxbParserTest {
     private static final JaxbParser JAXB_PARSER = new JaxbParser(ObjectFactory.class);
-
     static {
         JAXB_PARSER.setSchema(Schemas.ofClasspath("payload.xsd"));
     }

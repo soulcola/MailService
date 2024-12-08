@@ -1,10 +1,10 @@
 
 package ru.javaops.masterjava.xml.schema;
 
+import javax.xml.namespace.QName;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
-import javax.xml.namespace.QName;
 
 
 /**
@@ -42,19 +42,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link User }
+     * Create an instance of {@link Payload.Projects }
      * 
      */
-    public User createUser() {
-        return new User();
-    }
-
-    /**
-     * Create an instance of {@link Payload.Cities }
-     * 
-     */
-    public Payload.Cities createPayloadCities() {
-        return new Payload.Cities();
+    public Payload.Projects createPayloadProjects() {
+        return new Payload.Projects();
     }
 
     /**
@@ -66,6 +58,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Payload.Cities }
+     * 
+     */
+    public Payload.Cities createPayloadCities() {
+        return new Payload.Cities();
+    }
+
+    /**
+     * Create an instance of {@link User }
+     * 
+     */
+    public User createUser() {
+        return new User();
+    }
+
+    /**
      * Create an instance of {@link CityType }
      * 
      */
@@ -74,8 +82,28 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CityType }{@code >}}
+     * Create an instance of {@link Project }
      * 
+     */
+    public Project createProject() {
+        return new Project();
+    }
+
+    /**
+     * Create an instance of {@link Group }
+     * 
+     */
+    public Group createGroup() {
+        return new Group();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CityType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CityType }{@code >}
      */
     @XmlElementDecl(namespace = "http://javaops.ru", name = "City")
     public JAXBElement<CityType> createCity(CityType value) {
