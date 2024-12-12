@@ -3,17 +3,18 @@ package ru.javaops.masterjava;
 import com.google.common.io.Resources;
 import j2html.TagCreator;
 import j2html.tags.specialized.BodyTag;
-import ru.javaops.masterjava.xml.schema.*;
+import ru.javaops.masterjava.xml.schema.ObjectFactory;
+import ru.javaops.masterjava.xml.schema.Payload;
+import ru.javaops.masterjava.xml.schema.Project;
+import ru.javaops.masterjava.xml.schema.User;
 import ru.javaops.masterjava.xml.util.JaxbParser;
 import ru.javaops.masterjava.xml.util.Schemas;
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.util.Comparator;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static j2html.TagCreator.td;
