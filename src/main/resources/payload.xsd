@@ -45,29 +45,11 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:simpleType name="flagType">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="active"/>
-            <xs:enumeration value="deleted"/>
-            <xs:enumeration value="superuser"/>
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:element name="City" type="cityType"/>
-
-    <xs:complexType name="cityType">
-        <xs:simpleContent>
-            <xs:extension base="xs:string">
-                <xs:attribute type="xs:ID" name="id" use="required"/>
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-
     <xs:element name="Project">
         <xs:complexType>
             <xs:sequence>
                 <xs:element type="xs:string" name="Description"/>
-                <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                <xs:sequence minOccurs="1" maxOccurs="unbounded">
                     <xs:element ref="Group"/>
                 </xs:sequence>
             </xs:sequence>
@@ -89,4 +71,22 @@
             </xs:attribute>
         </xs:complexType>
     </xs:element>
+
+    <xs:simpleType name="flagType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="active"/>
+            <xs:enumeration value="deleted"/>
+            <xs:enumeration value="superuser"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="City" type="cityType"/>
+
+    <xs:complexType name="cityType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:ID" name="id" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
 </xs:schema>

@@ -1,5 +1,6 @@
 package ru.javaops.masterjava.xml.util;
 
+import com.google.common.base.Strings;
 import com.google.common.io.Resources;
 import org.junit.Test;
 
@@ -74,9 +75,6 @@ public class StaxStreamProcessorTest {
     }
 
     private String getAttributeValue(XMLStreamReader reader, String attributeName) {
-        if (reader.getAttributeValue(null, attributeName) != null) {
-            return reader.getAttributeValue(null, attributeName);
-        }
-        return "";
+        return Strings.nullToEmpty(reader.getAttributeValue(null, attributeName));
     }
 }

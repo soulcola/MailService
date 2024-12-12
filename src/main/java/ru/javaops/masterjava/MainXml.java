@@ -1,6 +1,8 @@
 package ru.javaops.masterjava;
 
 import com.google.common.io.Resources;
+import j2html.TagCreator;
+import j2html.tags.specialized.BodyTag;
 import ru.javaops.masterjava.xml.schema.*;
 import ru.javaops.masterjava.xml.util.JaxbParser;
 import ru.javaops.masterjava.xml.util.Schemas;
@@ -9,7 +11,13 @@ import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
+
+import static j2html.TagCreator.td;
+import static j2html.TagCreator.tr;
 
 /**
  * User: gkislin
@@ -34,10 +42,22 @@ public class MainXml {
                 .filter(project1 -> project1.getName().equals(projectName))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("wrong project name"));
-        payload.getUsers().getUser().stream()
+
+        Set<User> users = payload.getUsers().getUser().stream()
                 .filter(user -> user.getGroups().removeAll(project.getGroup()))
-                .sorted(Comparator.comparing(User::getValue))
-                .collect(Collectors.toList())
-                .forEach(user -> System.out.println(user.getValue()));
+                .collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(User::getValue).thenComparing(User::getEmail))));
+
+        BodyTag body = TagCreator.body(
+                TagCreator.table(),
+                tr(),
+                TagCreator.th("Name"),
+                TagCreator.th("Email"),
+                TagCreator.each(users, user -> tr(
+                                td(user.getValue()),
+                                td(user.getEmail())
+                        )
+                )
+        );
+        System.out.println(body.render());
     }
 }
