@@ -4,16 +4,11 @@ import com.google.common.io.Resources;
 import j2html.TagCreator;
 import j2html.tags.specialized.BodyTag;
 import org.junit.Test;
-import ru.javaops.masterjava.xml.schema.ObjectFactory;
-import ru.javaops.masterjava.xml.schema.Payload;
-import ru.javaops.masterjava.xml.schema.Project;
-import ru.javaops.masterjava.xml.schema.User;
+import ru.javaops.masterjava.xml.schema.*;
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
-import java.util.Comparator;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static j2html.TagCreator.td;
@@ -35,11 +30,13 @@ public class MainXmlXmlTest {
 
         Project project = payload.getProjects().getProject().stream()
                 .filter(project1 -> project1.getName().equals(projectName))
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("wrong project name"));
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException("Wrong project name"));
+
+        Set<Group> groups = new HashSet<>(project.getGroup());
 
         Set<User> users = payload.getUsers().getUser().stream()
-                .filter(user -> user.getGroups().removeAll(project.getGroup()))
+                .filter(user -> !Collections.disjoint(groups, user.getGroups()))
                 .collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(User::getValue).thenComparing(User::getEmail))));
 
         BodyTag body = TagCreator.body(
