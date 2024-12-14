@@ -78,10 +78,10 @@ public class Payload {
      * 
      * @return
      *     possible object is
-     *     {@link Payload.Projects }
+     *     {@link Projects }
      *     
      */
-    public Payload.Projects getProjects() {
+    public Projects getProjects() {
         return projects;
     }
 
@@ -90,10 +90,10 @@ public class Payload {
      * 
      * @param value
      *     allowed object is
-     *     {@link Payload.Projects }
+     *     {@link Projects }
      *     
      */
-    public void setProjects(Payload.Projects value) {
+    public void setProjects(Projects value) {
         this.projects = value;
     }
 
@@ -102,10 +102,10 @@ public class Payload {
      * 
      * @return
      *     possible object is
-     *     {@link Payload.Cities }
+     *     {@link Cities }
      *     
      */
-    public Payload.Cities getCities() {
+    public Cities getCities() {
         return cities;
     }
 
@@ -114,10 +114,10 @@ public class Payload {
      * 
      * @param value
      *     allowed object is
-     *     {@link Payload.Cities }
+     *     {@link Cities }
      *     
      */
-    public void setCities(Payload.Cities value) {
+    public void setCities(Cities value) {
         this.cities = value;
     }
 
@@ -126,10 +126,10 @@ public class Payload {
      * 
      * @return
      *     possible object is
-     *     {@link Payload.Users }
+     *     {@link Users }
      *     
      */
-    public Payload.Users getUsers() {
+    public Users getUsers() {
         return users;
     }
 
@@ -138,10 +138,10 @@ public class Payload {
      * 
      * @param value
      *     allowed object is
-     *     {@link Payload.Users }
+     *     {@link Users }
      *     
      */
-    public void setUsers(Payload.Users value) {
+    public void setUsers(Users value) {
         this.users = value;
     }
 
