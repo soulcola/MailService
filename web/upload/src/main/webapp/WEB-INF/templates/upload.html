@@ -1,10 +1,15 @@
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Upload XML</title>
 </head>
 <body>
 <form action="" method="post" enctype="multipart/form-data">
+    <h3         th:text="${message}"></h3>
     <h3>Select xml file to upload</h3>
+    <p>
+        <label for="batchSize">Batch size:</label><input type="number" name="batchSize" id="batchSize" th:value="${batchSize}"><br/>
+    </p>
     <p>
         <input type="file" name="fileToUpload" id="fileToUpload"><br/>
     </p>

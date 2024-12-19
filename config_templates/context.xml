@@ -44,6 +44,6 @@
               driverClassName="org.postgresql.Driver"
               username="admin"
               password="Karamba1987"
-              url="jdbc:postgresql://petrtitov.com:35432/postgres"/>
+              url="jdbc:postgresql://petrtitov.com:35432/masterjava"/>
 
 </Context>
