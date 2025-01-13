@@ -30,7 +30,7 @@ public class UserGroupTestData {
     public static void setUp() {
         UserGroupDao dao = DBIProvider.getDao(UserGroupDao.class);
         dao.clean();
-        DBIProvider.getDBI().useTransaction((conn, status) -> {
+        DBIProvider.getDBI().useTransaction((conn) -> {
             dao.insertBatch(USER_GROUPS);
         });
     }

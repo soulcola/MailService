@@ -25,7 +25,7 @@ public class ProjectTestData {
     public static void setUp() {
         ProjectDao dao = DBIProvider.getDao(ProjectDao.class);
         dao.clean();
-        DBIProvider.getDBI().useTransaction((conn, status) -> {
+        DBIProvider.getDBI().useTransaction((conn) -> {
             PROJECTS.values().forEach(dao::insert);
         });
         TOPJAVA_ID = TOPJAVA.getId();

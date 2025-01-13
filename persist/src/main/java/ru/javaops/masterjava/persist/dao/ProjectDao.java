@@ -1,36 +1,35 @@
 package ru.javaops.masterjava.persist.dao;
 
-import com.bertoncelj.jdbi.entitymapper.EntityMapperFactory;
 import one.util.streamex.StreamEx;
-import org.skife.jdbi.v2.sqlobject.BindBean;
-import org.skife.jdbi.v2.sqlobject.GetGeneratedKeys;
-import org.skife.jdbi.v2.sqlobject.SqlQuery;
-import org.skife.jdbi.v2.sqlobject.SqlUpdate;
-import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
+import org.jdbi.v3.sqlobject.config.RegisterBeanMapper;
+import org.jdbi.v3.sqlobject.customizer.BindBean;
+import org.jdbi.v3.sqlobject.statement.GetGeneratedKeys;
+import org.jdbi.v3.sqlobject.statement.SqlQuery;
+import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 import ru.javaops.masterjava.persist.model.Project;
 
 import java.util.List;
 import java.util.Map;
 
-@RegisterMapperFactory(EntityMapperFactory.class)
-public abstract class ProjectDao implements AbstractDao {
+public interface ProjectDao extends AbstractDao {
 
     @SqlUpdate("TRUNCATE project CASCADE ")
     @Override
-    public abstract void clean();
+    void clean();
 
     @SqlQuery("SELECT * FROM project ORDER BY name")
-    public abstract List<Project> getAll();
+    @RegisterBeanMapper(Project.class)
+    List<Project> getAll();
 
-    public Map<String, Project> getAsMap() {
+    default Map<String, Project> getAsMap() {
         return StreamEx.of(getAll()).toMap(Project::getName, g -> g);
     }
 
     @SqlUpdate("INSERT INTO project (name, description)  VALUES (:name, :description)")
     @GetGeneratedKeys
-    public abstract int insertGeneratedId(@BindBean Project project);
+    int insertGeneratedId(@BindBean Project project);
 
-    public void insert(Project project) {
+    default void insert(Project project) {
         int id = insertGeneratedId(project);
         project.setId(id);
     }

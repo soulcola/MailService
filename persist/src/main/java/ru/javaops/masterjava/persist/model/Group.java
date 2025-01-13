@@ -1,7 +1,8 @@
 package ru.javaops.masterjava.persist.model;
 
-import com.bertoncelj.jdbi.entitymapper.Column;
+//import com.bertoncelj.jdbi.entitymapper.Column;
 import lombok.*;
+import org.jdbi.v3.core.mapper.reflect.ColumnName;
 import ru.javaops.masterjava.persist.model.type.GroupType;
 
 @Data
@@ -13,5 +14,5 @@ public class Group extends BaseEntity {
 
     @NonNull private String name;
     @NonNull private GroupType type;
-    @NonNull @Column("project_id") private int projectId;
+    @NonNull @ColumnName("project_id") private int projectId;
 }

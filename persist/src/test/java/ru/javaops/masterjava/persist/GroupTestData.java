@@ -42,7 +42,7 @@ public class GroupTestData {
     public static void setUp() {
         GroupDao dao = DBIProvider.getDao(GroupDao.class);
         dao.clean();
-        DBIProvider.getDBI().useTransaction((conn, status) -> {
+        DBIProvider.getDBI().useTransaction((conn) -> {
             GROUPS.values().forEach(dao::insert);
         });
         TOPJAVA_06_ID = TOPJAVA_06.getId();

@@ -29,7 +29,7 @@ public class CityTestData {
     public static void setUp() {
         CityDao dao = DBIProvider.getDao(CityDao.class);
         dao.clean();
-        DBIProvider.getDBI().useTransaction((conn, status) -> {
+        DBIProvider.getDBI().useTransaction((conn) -> {
             CITIES.values().forEach(dao::insert);
         });
     }
