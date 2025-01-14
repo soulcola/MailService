@@ -15,7 +15,7 @@ import ru.javaops.masterjava.persist.model.type.UserFlag;
 import ru.javaops.masterjava.upload.PayloadProcessor.FailedEmails;
 import ru.javaops.masterjava.xml.util.StaxStreamProcessor;
 
-import javax.xml.bind.JAXBException;
+import jakarta.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.XMLEvent;
 import java.util.*;
