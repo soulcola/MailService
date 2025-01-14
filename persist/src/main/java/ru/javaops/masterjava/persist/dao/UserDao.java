@@ -56,11 +56,11 @@ public interface UserDao extends AbstractDao {
     int[] insertBatch(@BindBean List<User> users, @BatchChunkSize int chunkSize);
 
 
-    default List<String> insertAndGetConflictEmails(List<User> users) {
+    default List<User> insertAndGetConflictEmails(List<User> users) {
         int[] result = insertBatch(users, users.size());
         return IntStreamEx.range(0, users.size())
                 .filter(i -> result[i] == 0)
-                .mapToObj(index -> users.get(index).getEmail())
+                .mapToObj(users::get)
                 .toList();
     }
 }
