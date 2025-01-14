@@ -1,23 +1,24 @@
 package ru.javaops.masterjava.upload;
 
 import com.google.common.collect.ImmutableMap;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 import lombok.extern.slf4j.Slf4j;
 import org.thymeleaf.context.WebContext;
+import ru.javaops.masterjava.common.web.ThymeleafUtil;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
 import static ru.javaops.masterjava.common.web.ThymeleafListener.engine;
 
-@WebServlet(urlPatterns = "/", loadOnStartup = 1)
+@WebServlet(urlPatterns = "/")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10) //10 MB in memory limit
 @Slf4j
 public class UploadServlet extends HttpServlet {
@@ -45,7 +46,7 @@ public class UploadServlet extends HttpServlet {
                     List<PayloadProcessor.FailedEmails> failed = payloadProcessor.process(is, chunkSize);
                     log.info("Failed users: " + failed);
                     final WebContext webContext =
-                            new WebContext(req, resp, req.getServletContext(), req.getLocale(),
+                            new WebContext(ThymeleafUtil.getIWebExchange(req, resp), req.getLocale(),
                                     ImmutableMap.of("users", failed));
                     engine.process("result", webContext, resp.getWriter());
                     return;
@@ -60,7 +61,7 @@ public class UploadServlet extends HttpServlet {
 
     private void out(HttpServletRequest req, HttpServletResponse resp, String message, int chunkSize) throws IOException {
         resp.setCharacterEncoding("utf-8");
-        final WebContext webContext = new WebContext(req, resp, req.getServletContext(), req.getLocale(),
+        final WebContext webContext = new WebContext(ThymeleafUtil.getIWebExchange(req, resp), req.getLocale(),
                 ImmutableMap.of("message", message, "chunkSize", chunkSize));
         engine.process("upload", webContext, resp.getWriter());
     }

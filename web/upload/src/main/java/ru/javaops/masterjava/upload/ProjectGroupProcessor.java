@@ -11,7 +11,7 @@ import ru.javaops.masterjava.persist.model.type.GroupType;
 import ru.javaops.masterjava.xml.schema.Payload;
 import ru.javaops.masterjava.xml.util.StaxStreamProcessor;
 
-import javax.xml.bind.JAXBException;
+import jakarta.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.XMLEvent;
 import java.util.ArrayList;

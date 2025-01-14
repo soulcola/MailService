@@ -5,7 +5,7 @@ import ru.javaops.masterjava.persist.DBITestProvider;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
-import javax.xml.ws.Endpoint;
+import jakarta.xml.ws.Endpoint;
 import java.io.File;
 import java.util.List;
 
