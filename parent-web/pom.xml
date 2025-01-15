@@ -73,9 +73,9 @@
             <resource>
                 <directory>${masterjava.config}</directory>
                 <filtering>true</filtering>
-                <includes>
-                    <include>logback.xml</include>
-                </includes>
+<!--                <includes>-->
+<!--                    <include>logback.xml</include>-->
+<!--                </includes>-->
             </resource>
             <resource>
                 <directory>src/main/resources</directory>
