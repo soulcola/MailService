@@ -31,10 +31,10 @@
             <plugin>
                 <groupId>org.codehaus.cargo</groupId>
                 <artifactId>cargo-maven2-plugin</artifactId>
-                <version>1.7.11</version>
+                <version>1.8.5</version>
                 <configuration>
                     <container>
-                        <containerId>tomcat8x</containerId>
+                        <containerId>tomcat10x</containerId>
                         <systemProperties>
                             <file.encoding>UTF-8</file.encoding>
                         </systemProperties>
