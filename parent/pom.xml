@@ -73,9 +73,9 @@
         <testResources>
             <testResource>
                 <directory>${masterjava.config}</directory>
-<!--                <includes>-->
-<!--                    <include>logback-test.xml</include>-->
-<!--                </includes>-->
+                <excludes>
+                    <exclude>logback.xml</exclude>
+                </excludes>
             </testResource>
             <testResource>
                 <directory>src/test/resources</directory>
