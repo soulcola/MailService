@@ -69,13 +69,26 @@
                 </executions>
             </plugin>
         </plugins>
-
+        <resources>
+            <resource>
+                <directory>${masterjava.config}</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>/conf/**</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <testResources>
             <testResource>
                 <directory>${masterjava.config}</directory>
-                <excludes>
-                    <exclude>logback.xml</exclude>
-                </excludes>
+                <filtering>true</filtering>
+                <includes>
+                    <include>logback-test.xml</include>
+                    <include>/conf/**</include>
+                </includes>
             </testResource>
             <testResource>
                 <directory>src/test/resources</directory>
