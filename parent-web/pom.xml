@@ -94,11 +94,11 @@
                 <filtering>true</filtering>
                 <includes>
                     <include>logback.xml</include>
-                    <include>/conf/**</include>
                 </includes>
             </resource>
             <resource>
                 <directory>src/main/resources</directory>
+                <filtering>true</filtering>
             </resource>
         </resources>
     </build>

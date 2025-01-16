@@ -18,7 +18,7 @@
         <logback.version>1.5.16</logback.version>
         <slf4j.version>2.0.16</slf4j.version>
         <lombok.version>1.18.36</lombok.version>
-        <masterjava.config>${user.home}\Java\apps\masterjava\config\</masterjava.config>
+        <masterjava.config>${user.home}/Java/apps/masterjava/config/</masterjava.config>
         <dependency.locations.enabled>false</dependency.locations.enabled>
     </properties>
 
@@ -69,16 +69,11 @@
                 </executions>
             </plugin>
         </plugins>
+
         <resources>
             <resource>
-                <directory>${masterjava.config}</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>/conf/**</include>
-                </includes>
-            </resource>
-            <resource>
                 <directory>src/main/resources</directory>
+                <filtering>true</filtering>
             </resource>
         </resources>
         <testResources>
@@ -87,11 +82,11 @@
                 <filtering>true</filtering>
                 <includes>
                     <include>logback-test.xml</include>
-                    <include>/conf/**</include>
                 </includes>
             </testResource>
             <testResource>
                 <directory>src/test/resources</directory>
+                <filtering>true</filtering>
             </testResource>
         </testResources>
     </build>
