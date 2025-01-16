@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Collections;
 import java.util.List;
 
 @Data
@@ -13,6 +14,10 @@ public class GroupResult {
     private int success; // number of successfully sent email
     private List<MailResult> failed; // failed emails with causes
     private String failedCause;  // global fail cause
+
+    public GroupResult(Exception e) {
+        this(-1, Collections.EMPTY_LIST, e.getMessage());
+    }
 
     @Override
     public String toString() {

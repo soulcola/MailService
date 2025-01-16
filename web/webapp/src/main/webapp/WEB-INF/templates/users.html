@@ -1,12 +1,14 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-<table border="1" cellpadding="8" cellspacing="0">
+<table border="1" cellpadding="8" cellspacing="0" id="table">
     <thead>
     <tr>
+        <th></th>
         <th>#</th>
         <th>Full Name</th>
         <th>Email</th>
@@ -16,6 +18,9 @@
     <tbody>
     <!--/*@thymesVar id="users" type="java.util.List<ru.javaops.masterjava.persist.model.User>"*/-->
     <tr th:each="user,iter: ${users}">
+        <td>
+            <input type="checkbox" id="check" th:value="${user.fullName + ' <' + user.email + '>'}">
+        </td>
         <td th:text="${iter.count}"></td>
         <td th:text="${user.fullName}"></td>
         <td th:utext="${user.email}"></td>
@@ -23,5 +28,38 @@
     </tr>
     </tbody>
 </table>
+<label for="subject">Subject</label>
+</br>
+<textarea id="subject" name="subject" rows="2" cols="33"></textarea>
+</br>
+</br>
+<label for="body">Body:</label>
+</br>
+<textarea id="body" name="body" rows="7" cols="33"></textarea>
+</br>
+<input type="button" id="send" onclick=send() value="Send">
+<div id="result"></div>
 </body>
+
+<script>
+    function send() {
+        $("#result").html("Sending...")
+        var users = $('input[type="checkbox"]:checked').map(function () {
+            return this.value;
+        }).get()
+        let subject = $("#subject").val();
+        let body = $("#body").val();
+        $.post({
+            url: "/send",
+            data: {
+                users: users,
+                subject: subject,
+                body: body
+            }
+        }).done(function (response) {
+            $("#result").html(response)
+        });
+        console.log("Selected emails:", users);
+    }
+</script>
 </html>
