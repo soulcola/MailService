@@ -1,9 +1,9 @@
 package ru.javaops.masterjava.service.mail;
 
 import com.google.common.collect.ImmutableSet;
+import jakarta.xml.ws.Service;
 
 import javax.xml.namespace.QName;
-import jakarta.xml.ws.Service;
 import java.net.MalformedURLException;
 import java.net.URL;
 

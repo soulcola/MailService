@@ -1,6 +1,7 @@
 package ru.javaops.masterjava.upload;
 
 import com.google.common.base.Splitter;
+import jakarta.xml.bind.JAXBException;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import one.util.streamex.StreamEx;
@@ -15,7 +16,6 @@ import ru.javaops.masterjava.persist.model.type.UserFlag;
 import ru.javaops.masterjava.upload.PayloadProcessor.FailedEmails;
 import ru.javaops.masterjava.xml.util.StaxStreamProcessor;
 
-import jakarta.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.XMLEvent;
 import java.util.*;

@@ -4,7 +4,6 @@ import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 import org.thymeleaf.ITemplateEngine;
-import org.thymeleaf.TemplateEngine;
 
 
 @WebListener

@@ -33,6 +33,6 @@ public class Configs {
     }
 
     private static class AppConfig {
-        private static final Config APP_CONFIG = getConfig("app.conf", "app");
+        private static final Config APP_CONFIG = getConfig("conf/app.conf", "app");
     }
 }

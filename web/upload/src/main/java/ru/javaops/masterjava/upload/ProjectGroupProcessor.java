@@ -1,5 +1,6 @@
 package ru.javaops.masterjava.upload;
 
+import jakarta.xml.bind.JAXBException;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import ru.javaops.masterjava.persist.DBIProvider;
@@ -11,7 +12,6 @@ import ru.javaops.masterjava.persist.model.type.GroupType;
 import ru.javaops.masterjava.xml.schema.Payload;
 import ru.javaops.masterjava.xml.util.StaxStreamProcessor;
 
-import jakarta.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.XMLEvent;
 import java.util.ArrayList;

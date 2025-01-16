@@ -1,9 +1,9 @@
 package ru.javaops.masterjava.xml.util;
 
-import org.xml.sax.SAXException;
-
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
+import org.xml.sax.SAXException;
+
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import java.io.IOException;

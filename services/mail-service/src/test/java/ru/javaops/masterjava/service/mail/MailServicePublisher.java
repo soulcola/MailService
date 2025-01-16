@@ -1,13 +1,12 @@
 package ru.javaops.masterjava.service.mail;
 
 import com.google.common.collect.ImmutableList;
+import jakarta.xml.ws.Endpoint;
 import ru.javaops.masterjava.config.Configs;
 import ru.javaops.masterjava.persist.DBITestProvider;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
-import jakarta.xml.ws.Endpoint;
-import java.io.File;
 import java.util.List;
 
 public class MailServicePublisher {

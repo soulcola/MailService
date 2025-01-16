@@ -87,10 +87,11 @@
                 <filtering>true</filtering>
                 <includes>
                     <include>logback.xml</include>
-                    <include>app.conf</include>
+                    <include>conf/app.conf</include>
                 </includes>
             </resource>
             <resource>
+                <filtering>true</filtering>
                 <directory>src/main/resources</directory>
             </resource>
         </resources>

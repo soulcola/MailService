@@ -1,12 +1,12 @@
 package ru.javaops.masterjava.upload;
 
+import jakarta.xml.bind.JAXBException;
 import lombok.AllArgsConstructor;
 import lombok.val;
 import ru.javaops.masterjava.xml.schema.ObjectFactory;
 import ru.javaops.masterjava.xml.util.JaxbParser;
 import ru.javaops.masterjava.xml.util.StaxStreamProcessor;
 
-import jakarta.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 import java.io.InputStream;
 import java.util.List;

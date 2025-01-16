@@ -1,6 +1,7 @@
 package ru.javaops.masterjava.service.mail;
 
 import jakarta.jws.WebService;
+
 import java.util.Set;
 
 @WebService(endpointInterface = "ru.javaops.masterjava.service.mail.MailService", targetNamespace = "http://mail.javaops.ru/"

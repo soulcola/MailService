@@ -6,7 +6,6 @@ import org.junit.Test;
 import ru.javaops.masterjava.persist.CityTestData;
 import ru.javaops.masterjava.persist.model.City;
 
-import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;

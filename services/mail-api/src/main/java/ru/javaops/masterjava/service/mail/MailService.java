@@ -3,6 +3,7 @@ package ru.javaops.masterjava.service.mail;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebService;
+
 import java.util.Set;
 
 @WebService(targetNamespace = "http://mail.javaops.ru/")
