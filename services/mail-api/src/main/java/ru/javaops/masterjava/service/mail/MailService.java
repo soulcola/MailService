@@ -3,6 +3,7 @@ package ru.javaops.masterjava.service.mail;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebService;
+import ru.javaops.web.WebStateException;
 
 import java.util.Set;
 
@@ -18,12 +19,12 @@ public interface MailService {
             @WebParam(name = "to") Set<Addressee> to,
             @WebParam(name = "cc") Set<Addressee> cc,
             @WebParam(name = "subject") String subject,
-            @WebParam(name = "body") String body);
+            @WebParam(name = "body") String body) throws WebStateException;
 
     @WebMethod
     GroupResult sendBulk(
             @WebParam(name = "to") Set<Addressee> to,
             @WebParam(name = "subject") String subject,
-            @WebParam(name = "body") String body);
+            @WebParam(name = "body") String body) throws WebStateException;
 
 }
