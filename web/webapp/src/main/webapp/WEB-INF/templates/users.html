@@ -40,18 +40,39 @@
         <textarea id="body" placeholder="mail body" cols=75 rows=5></textarea><br/>
     </p>
     <p>
-        <button type="button" onclick="send()">Send</button>
+    <form id="upload" action="" enctype="multipart/form-data">
+        <input type="file" name="fileToUpload" id="fileToUpload" required><br/>
+    </form>
+    <button type="button" onclick="send()">Send</button>
     </p>
     <pre id="result"></pre>
 </section>
 <script type="text/javascript">
     function send() {
         $('#result').html("Sending ...");
+
         var users = $("input:checkbox:checked").map(function () {
             return this.value;
         }).get();
+        var data = new FormData($("#upload")[0]);
+        data.append('users', users);
+        data.append('subject', $("#subject").val());
+        data.append('body',$("#body").val())
 //        https://stackoverflow.com/a/22213543/548473
-        $.post("send", "users=" + users + "&subject=" + $("#subject").val() + "&body=" + $("#body").val())
+        $.ajax({
+            url: "send",
+            data: data,
+            processData: false,        // предотвращает преобразование объекта FormData в строку
+            contentType: false,       // предотвращает установку заголовка Content-Type по умолчанию
+
+            // data: {
+            //     users: users,
+            //     subject: $("#subject").val(),
+            //     body: $("#body").val()
+            //
+            // }.append(form),
+            type: 'POST'
+        })
             .done(function (result) {
                 $('#result').html(result);
             })

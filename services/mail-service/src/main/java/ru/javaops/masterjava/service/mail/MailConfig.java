@@ -2,6 +2,7 @@ package ru.javaops.masterjava.service.mail;
 
 import com.typesafe.config.Config;
 import jakarta.mail.Authenticator;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.mail2.core.EmailException;
 import org.apache.commons.mail2.jakarta.DefaultAuthenticator;
 import org.apache.commons.mail2.jakarta.Email;
@@ -9,7 +10,9 @@ import org.apache.commons.mail2.jakarta.HtmlEmail;
 import ru.javaops.masterjava.config.Configs;
 
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
+@Slf4j
 public class MailConfig {
     private static final MailConfig INSTANCE =
             new MailConfig(Configs.getConfig("mail.conf", "mail"));

@@ -1,6 +1,7 @@
 package ru.javaops.masterjava.webapp;
 
 import com.google.common.collect.ImmutableMap;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
