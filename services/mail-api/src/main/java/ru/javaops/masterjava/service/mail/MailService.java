@@ -3,7 +3,7 @@ package ru.javaops.masterjava.service.mail;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebService;
-import ru.javaops.web.WebStateException;
+import ru.javaops.masterjava.web.WebStateException;
 
 import java.util.Set;
 

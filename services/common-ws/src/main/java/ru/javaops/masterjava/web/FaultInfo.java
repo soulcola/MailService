@@ -1,4 +1,4 @@
-package ru.javaops.web;
+package ru.javaops.masterjava.web;
 
 import jakarta.xml.bind.annotation.XmlType;
 import lombok.Data;
