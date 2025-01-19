@@ -1,8 +1,8 @@
 package ru.javaops.masterjava;
 
+import jakarta.xml.bind.annotation.XmlType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import jakarta.xml.bind.annotation.*;
 
 @Getter
 @AllArgsConstructor

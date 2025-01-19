@@ -1,12 +1,11 @@
 package ru.javaops.web;
 
+import jakarta.xml.bind.annotation.XmlType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import ru.javaops.masterjava.ExceptionType;
-
-import jakarta.xml.bind.annotation.XmlType;
 
 @Data
 @RequiredArgsConstructor

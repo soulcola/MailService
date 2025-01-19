@@ -1,10 +1,9 @@
 package ru.javaops.web;
 
 
+import jakarta.xml.ws.WebFault;
 import lombok.Getter;
 import ru.javaops.masterjava.ExceptionType;
-
-import jakarta.xml.ws.WebFault;
 
 @WebFault(name = "webStateException", targetNamespace = "http://common.javaops.ru/")
 @Getter
