@@ -1,6 +1,7 @@
 package ru.javaops.masterjava.service.mail;
 
 import jakarta.annotation.Resource;
+import jakarta.jws.HandlerChain;
 import jakarta.jws.WebService;
 import jakarta.xml.ws.WebServiceContext;
 import jakarta.xml.ws.handler.MessageContext;
@@ -17,6 +18,7 @@ import java.util.Set;
 )
 //@StreamingAttachment(parseEagerly=true, memoryThreshold=40000L)
 @MTOM
+@HandlerChain(file = "mailWsHandlers.xml")
 public class MailServiceImpl implements MailService {
 
     @Resource

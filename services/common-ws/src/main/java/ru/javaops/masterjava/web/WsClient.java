@@ -3,11 +3,11 @@ package ru.javaops.masterjava.web;
 import com.typesafe.config.Config;
 import jakarta.xml.ws.BindingProvider;
 import jakarta.xml.ws.Service;
+import jakarta.xml.ws.WebServiceFeature;
 import ru.javaops.masterjava.ExceptionType;
 import ru.javaops.masterjava.config.Configs;
 
 import javax.xml.namespace.QName;
-import jakarta.xml.ws.WebServiceFeature;
 import java.net.URL;
 import java.util.Map;
 
@@ -19,7 +19,7 @@ public class WsClient<T> {
     private String endpointAddress;
 
     static {
-        HOSTS = Configs.getConfig("hosts.conf", "hosts");
+        HOSTS = Configs.getConfig("hosts.conf", "hosts").getConfig("mail");
     }
 
     public WsClient(URL wsdlUrl, QName qname, Class<T> serviceClass) {

@@ -4,13 +4,13 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import com.google.common.io.Resources;
+import jakarta.xml.ws.soap.MTOMFeature;
 import lombok.extern.slf4j.Slf4j;
 import ru.javaops.masterjava.web.AuthUtil;
 import ru.javaops.masterjava.web.WebStateException;
 import ru.javaops.masterjava.web.WsClient;
 
 import javax.xml.namespace.QName;
-import jakarta.xml.ws.soap.MTOMFeature;
 import java.util.List;
 import java.util.Set;
 
@@ -27,7 +27,7 @@ public class MailWSClient {
                 new QName("http://mail.javaops.ru/", "MailServiceImplService"),
                 MailService.class);
 
-        WS_CLIENT.init("mail", "/mail/mailService?wsdl");
+        WS_CLIENT.init("endpoint", "/mail/mailService?wsdl");
     }
 
 
