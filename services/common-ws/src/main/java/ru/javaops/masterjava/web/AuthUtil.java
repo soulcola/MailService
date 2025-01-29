@@ -17,7 +17,7 @@ public class AuthUtil {
         return "Basic " + DatatypeConverter.printBase64Binary(authString.getBytes());
     }
 
-    public static int checkBasicAuth(Map<String, List<String>> headers, String basicAuthCredentials) {
+    public static int checkBasicAuth(Map<String, List<String>> headers,  String basicAuthCredentials) {
         List<String> autHeaders = headers.get(AUTHORIZATION);
         if ((autHeaders == null || autHeaders.isEmpty())) {
             log.warn("Unauthorized access");
