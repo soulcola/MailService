@@ -35,15 +35,12 @@ import java.util.Map;
 @Slf4j
 public class SoapServerSecurityHandler extends SoapBaseHandler {
 
-    private static Config HOSTS;
     public static String USER;
     public static String PASSWORD;
 
     static {
-        HOSTS = Configs.getConfig("hosts.conf", "hosts").getConfig("mail");
-        USER = HOSTS.getString("user");
-        PASSWORD = HOSTS.getString("password");
-
+        USER = WsClient.WsClientConfig.USERNAME;
+        PASSWORD = WsClient.WsClientConfig.PASSWORD;
     }
 
     public static String AUTH_HEADER = AuthUtil.encodeBasicAuthHeader(USER, PASSWORD);
