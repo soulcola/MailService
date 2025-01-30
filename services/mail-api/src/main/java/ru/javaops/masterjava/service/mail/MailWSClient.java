@@ -1,8 +1,5 @@
 package ru.javaops.masterjava.service.mail;
 
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Iterables;
 import com.google.common.io.Resources;
 import jakarta.xml.ws.soap.MTOMFeature;
 import lombok.extern.slf4j.Slf4j;
@@ -16,8 +13,6 @@ import java.util.Set;
 @Slf4j
 public class MailWSClient {
     private static final WsClient<MailService> WS_CLIENT;
-    public static final String USER = "user";
-    public static final String PASSWORD = "password";
 
     static {
         WS_CLIENT = new WsClient<>(Resources.getResource("wsdl/mailService.wsdl"),
@@ -43,13 +38,10 @@ public class MailWSClient {
     }
 
     private static MailService getPort() {
-        MailService port = WS_CLIENT.getPort(new MTOMFeature(1024));
-        WsClient.setAuth(port, USER, PASSWORD);
-        return port;
+        return WS_CLIENT.getPort(new MTOMFeature(1024));
     }
 
-    public static Set<Addressee> split(String addressees) {
-        Iterable<String> split = Splitter.on(',').trimResults().omitEmptyStrings().split(addressees);
-        return ImmutableSet.copyOf(Iterables.transform(split, Addressee::new));
+    public static WsClient.HostConfig getHostConfig() {
+        return WS_CLIENT.getHostConfig();
     }
 }
