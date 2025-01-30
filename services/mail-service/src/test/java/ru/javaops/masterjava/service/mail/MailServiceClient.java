@@ -2,10 +2,10 @@ package ru.javaops.masterjava.service.mail;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import jakarta.activation.DataHandler;
 import jakarta.xml.ws.Service;
 import ru.javaops.masterjava.web.WebStateException;
 
-import jakarta.activation.DataHandler;
 import javax.xml.namespace.QName;
 import java.io.File;
 import java.net.MalformedURLException;

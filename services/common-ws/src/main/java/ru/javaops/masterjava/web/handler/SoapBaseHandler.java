@@ -2,13 +2,14 @@ package ru.javaops.masterjava.web.handler;
 
 import com.sun.xml.ws.api.handler.MessageHandler;
 import com.sun.xml.ws.api.handler.MessageHandlerContext;
+import jakarta.xml.ws.handler.MessageContext;
 
 import javax.xml.namespace.QName;
-import jakarta.xml.ws.handler.MessageContext;
 import java.util.Set;
 
 public abstract class SoapBaseHandler implements MessageHandler<MessageHandlerContext> {
 
+    @Override
     public Set<QName> getHeaders() {
         return null;
     }

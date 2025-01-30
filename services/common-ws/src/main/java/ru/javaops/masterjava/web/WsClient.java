@@ -3,11 +3,11 @@ package ru.javaops.masterjava.web;
 import com.typesafe.config.Config;
 import jakarta.xml.ws.BindingProvider;
 import jakarta.xml.ws.Service;
+import jakarta.xml.ws.WebServiceFeature;
 import ru.javaops.masterjava.ExceptionType;
 import ru.javaops.masterjava.config.Configs;
 
 import javax.xml.namespace.QName;
-import jakarta.xml.ws.WebServiceFeature;
 import java.net.URL;
 import java.util.Map;
 
@@ -28,7 +28,7 @@ public class WsClient<T> {
     }
 
     public void init(String host, String endpointAddress) {
-        this.endpointAddress = HOSTS.getString(host) + endpointAddress;
+        this.endpointAddress = HOSTS.getConfig(host).getString("endpoint") + endpointAddress;
     }
 
     //  Post is not thread-safe (http://stackoverflow.com/a/10601916/548473)

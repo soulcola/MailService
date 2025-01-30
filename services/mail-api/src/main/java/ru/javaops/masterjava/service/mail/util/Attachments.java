@@ -1,11 +1,11 @@
 package ru.javaops.masterjava.service.mail.util;
 
+import jakarta.activation.DataHandler;
+import jakarta.activation.DataSource;
 import lombok.AllArgsConstructor;
 import org.apache.commons.io.input.CloseShieldInputStream;
 import ru.javaops.masterjava.service.mail.Attachment;
 
-import jakarta.activation.DataHandler;
-import jakarta.activation.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
