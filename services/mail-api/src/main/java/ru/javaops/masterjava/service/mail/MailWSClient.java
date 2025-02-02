@@ -1,5 +1,8 @@
 package ru.javaops.masterjava.service.mail;
 
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Iterables;
 import com.google.common.io.Resources;
 import jakarta.xml.ws.soap.MTOMFeature;
 import lombok.extern.slf4j.Slf4j;
@@ -43,5 +46,10 @@ public class MailWSClient {
 
     public static WsClient.HostConfig getHostConfig() {
         return WS_CLIENT.getHostConfig();
+    }
+
+    public static Set<Addressee> split(String addressees) {
+        Iterable<String> split = Splitter.on(',').trimResults().omitEmptyStrings().split(addressees);
+        return ImmutableSet.copyOf(Iterables.transform(split, Addressee::new));
     }
 }

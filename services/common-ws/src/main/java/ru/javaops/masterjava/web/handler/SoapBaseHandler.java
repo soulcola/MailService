@@ -16,6 +16,7 @@ public abstract class SoapBaseHandler implements MessageHandler<MessageHandlerCo
 
     @Override
     public void close(MessageContext context) {
+
     }
 
     protected static boolean isOutbound(MessageHandlerContext context) {
